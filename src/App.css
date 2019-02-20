@@ -1,33 +1,168 @@
-.App {
+.calculator {
+  width: 415px;
+  height: 438px;
+  background: #000000;
+  margin: 70px auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 36px;
   text-align: center;
+  color: #FFFFFF;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.background-div {
+  width: 399px;
+  height: 422px;
+  position: fixed;
+  margin: 8px;
+  background: #262626;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.display {
+  position: relative;
+  width: 393px;
+  height: 91px;
+  margin: 3px;
+  text-align: right;
+}
+
+.displayPrev {
+  width: 100%;
+  height: 29px;
+  margin-bottom: 3px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  display: grid;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.displayCurrent {
+  width: 100%;
+  height: 59px;
+  display: grid;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttons {
+  width: 393px;
+  height: 322px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  display: grid;
+  grid-template-columns: repeat(4, 96px);
+  grid-template-rows: repeat(5, 62px);
+  grid-gap: 3px;
+}
+
+.divide {
+  grid-area: 1 / 4 / 1 / 5;
+}
+
+.multiply {
+  grid-area: 2 / 4 / 2 / 5;
+}
+
+.minus {
+  grid-area: 3 / 4 / 4 / 5;
+}
+
+.plus {
+  grid-area: 4 / 4 / 5 / 5;
+}
+
+.equal {
+  grid-area: 5 / 4 / 6 / 5;
+}
+
+.dot {
+  grid-area: 5 / 3 / 6 / 4;
+}
+
+.zero {
+  grid-area: 5 / 2 / 6 / 3;
+}
+
+.plusminus {
+  grid-area: 5 / 1 / 6 / 2;
+}
+
+.one {
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.two {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.three {
+  grid-area: 4 / 3 / 5 / 4;
+}
+
+.four {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.five {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.six {
+  grid-area: 3 / 3 / 4 / 4;
+}
+
+.seven {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.eight {
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.nine {
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.clearEntry {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.clear {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.backspace {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.multiply, .divide, .minus, .plus, .equal {
+  background: hsla(223, 60%, 63%, 1);
+}
+
+.multiply:hover, .divide:hover, .minus:hover, .plus:hover, .equal:hover {
+  background: hsla(223, 60%, 53%, 1);
+}
+
+.zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine {
+  background: hsla(0, 0%, 54%, 1);
+}
+
+.zero:hover, .one:hover, .two:hover, .three:hover, .four:hover, .five:hover, .six:hover, .seven:hover, .eight:hover, .nine:hover {
+  background: hsla(0, 0%, 44%, 1)
+}
+
+.clear, .clearEntry, .backspace, .plusminus, .dot {
+  background: hsla(0, 0%, 21%, 1)
+}
+
+.clear:hover, .clearEntry:hover, .backspace:hover, .plusminus:hover, .dot:hover {
+  background: hsla(0, 0%, 11%, 1)
+}
+
+.buttonProp {
+  display: grid;
+  align-items: center;
+  user-select: none;
 }
