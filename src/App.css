@@ -166,3 +166,25 @@
   align-items: center;
   user-select: none;
 }
+
+@media only screen and (max-width: 415px) {
+  .calculator {
+    width: 100vw;
+    margin: 0;
+    font-size: 26px;
+  }
+  .background-div {
+    width: 96vw;
+  }
+  .display {
+    width: 90vw;
+  }
+  .buttons {
+    width: 90vw;
+    height: 207px;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(5, 62px);
+    grid-gap: 3px;
+  }
+}
