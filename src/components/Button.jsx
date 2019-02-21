@@ -20,7 +20,9 @@ const whatButton = val => {
 const Button = (props) => (
     <div className={`button-wrapper ${
         whatButton(props.children)
-    }`}>{props.children}</div>
+    }`}
+        onClick={() => props.handleButtonClick(props.children)}
+    >{props.children}</div>
 )
 
 export default Button;
