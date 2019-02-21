@@ -1,0 +1,7 @@
+.button-wrapper {
+    height: 62px;
+    width: 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

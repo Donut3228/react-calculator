@@ -129,12 +129,18 @@ class Calculator extends Component {
     }
     render() {
         return (
+            <>
             <div className='background-div'>
                 <Display value={this.state.value} entry={this.state.entry}/>
                 <div className='buttons'>
                     {Object.keys(this.state.tiles).map((key, index) => <Tile handleClick={this.handleClick} tileKey={key} tileValue={this.state.tiles[key]} />)}
                 </div>
             </div>
+            <div>CE</div>
+            <div>C</div>
+            <div>BS</div>
+            <div>÷</div>
+            </>
     );
     }
 }
