@@ -1,21 +1,19 @@
-.button-wrapper {
-    height: 62px;
-    width: 96px;
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* outline: 1px solid white; */
-    margin-left: 3px;
+    /* align-items: center; */
     background: hsla(0, 0%, 34%, 1);
+    -moz-user-select: none;
     user-select: none;
 }
 
-.button-wrapper:hover {
-    background: hsla(0, 0%, 44%, 1)
+.button:hover {
+    background: hsla(0, 0%, 44%, 1);
 }
 
 .operator {
-    background: hsla(223, 60%, 43%, 1)
+    background: hsla(223, 60%, 43%, 1);
 }
 
 .operator:hover {
@@ -23,26 +21,9 @@
 }
 
 .extraOperator {
-    background: hsla(0, 0%, 21%, 1)
+    background: hsla(0, 0%, 21%, 1);
 }
 
 .extraOperator:hover {
-    background: hsla(0, 0%, 41%, 1)
-}
-
-@media only screen and (max-width: 415px) {
-    .button-wrapper {
-        width: 24%;
-        /* flex: 1; */
-        /* margin-left: 0; */
-        margin-left: 1%;
-        /* margin-right: 0.5%; */
-    }
-    /* .button-wrapper:first-child {
-        margin-left: 1%;
-    }
-    */
-    .button-wrapper:last-child {
-        margin-right: 1%;
-    }
+    background: hsla(0, 0%, 31%, 1);
 }

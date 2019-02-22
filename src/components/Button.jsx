@@ -18,7 +18,7 @@ const whatButton = val => {
 }
 
 const Button = (props) => (
-    <div className={`button-wrapper ${
+    <div className={`button ${
         whatButton(props.children)
     }`}
         onClick={() => props.handleButtonClick(props.children)}
