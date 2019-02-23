@@ -55,17 +55,17 @@ class App extends Component {
 
 
     let res = _.cloneDeep(this.state)
-    
+
     switch (res['lastAction']) {
       case 'dot':
         res['entry'] = res['entry'].slice(0, -1);
-        res['output'] = res['output'] + res['entry'] + symbols[button] 
+        res['output'] = res['output'] + res['entry'] + symbols[button]
         break;
       case 'operator':
-        res['output'] = res['output'] + res['entry'] + symbols[button]  
+        res['output'] = res['output'] + res['entry'] + symbols[button]
         break;
       case 'number':
-        res['output'] = res['output'] + res['entry'] + symbols[button]  
+        res['output'] = res['output'] + res['entry'] + symbols[button]
         break;
       default:
         res['output'] = res['entry'] + symbols[button]
@@ -84,7 +84,7 @@ class App extends Component {
     switch (res['lastAction']) {
 
       case 'operator':
-        res['hiddenEntry'] =  res['entry']
+        res['hiddenEntry'] = res['entry']
         res['entry'] = math.eval(res['output'] + res['entry']).toString()
         break;
 
@@ -93,6 +93,7 @@ class App extends Component {
         break;
 
       case 'number':
+        res['hiddenEntry'] = res['entry']
         res['entry'] = math.eval(res['output'] + res['entry']).toString()
         break;
 
@@ -128,7 +129,7 @@ class App extends Component {
         break;
       case 'operator':
         break;
-    
+
       default:
         if (res['entry'].length === 1 || res['entry'] === '-0.'
           || (res['entry'].length === 2 && res['entry'].includes('-'))) {
