@@ -17,3 +17,9 @@
     align-items: center;
     min-height: 59px;
 }
+
+.display-curr, .display-prev {
+    padding-right: 0.1em;
+    padding-left: 0.1em;
+}
+
