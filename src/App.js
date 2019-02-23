@@ -21,7 +21,6 @@ class App extends Component {
       value: '',
       entry: '0',
       output: '',
-      isFirst: true,
       lastAction: '',
       hiddenEntry: ''
     }
@@ -32,7 +31,7 @@ class App extends Component {
     switch (button) {
       case 'CE':
         res['entry'] = '0';
-        res['hiddenEntry'] = '0';
+        res['hiddenEntry'] = '';
         res['lastAction'] = 'clearAll';
         if (res['value'] === '') {
           res['output'] = ''
@@ -40,7 +39,7 @@ class App extends Component {
         break;
       case 'C':
         res['entry'] = '0';
-        res['hiddenEntry'] = '0';
+        res['hiddenEntry'] = '';
         res['value'] = '';
         res['lastAction'] = 'clear';
         res['output'] = ''
@@ -54,17 +53,13 @@ class App extends Component {
 
   handleOperators = (button) => {
 
-    console.log('entry: ' + this.state.entry)
-    console.log('value: ' + this.state.value)
-
-    console.log('________________________________________________________')
 
     let res = _.cloneDeep(this.state)
     
     switch (res['lastAction']) {
       case 'dot':
         res['entry'] = res['entry'].slice(0, -1);
-        res['output'] = res['entry'] + symbols[button] 
+        res['output'] = res['output'] + res['entry'] + symbols[button] 
         break;
       case 'operator':
         res['output'] = res['output'] + res['entry'] + symbols[button]  
@@ -84,26 +79,20 @@ class App extends Component {
 
   handleEqual = () => {
 
-    console.log('entry: ' + this.state.entry)
-    console.log('value: ' + this.state.value)
-    console.log('output: ' + this.state.output)
-
-
-    console.log('________________________________________________________')
 
     let res = _.cloneDeep(this.state);
     switch (res['lastAction']) {
 
       case 'operator':
+        res['hiddenEntry'] =  res['entry']
         res['entry'] = math.eval(res['output'] + res['entry']).toString()
         break;
 
       case 'equal':
-        res['entry'] = math.eval(res['entry'] + res['hiddenEntry']).toString()
+        res['entry'] = math.eval(res['entry'] + res['output'].slice(-1) + res['hiddenEntry']).toString()
         break;
 
       case 'number':
-        res['hiddenEntry'] = res['hiddenEntry'] + res['entry']
         res['entry'] = math.eval(res['output'] + res['entry']).toString()
         break;
 
@@ -135,6 +124,8 @@ class App extends Component {
 
     switch (res['lastAction']) {
       case 'equal':
+        res['entry'] = res['entry'].slice(0, -1)
+        break;
       case 'operator':
         break;
     
@@ -147,7 +138,7 @@ class App extends Component {
         }
         break;
     }
-
+    res['lastAction'] = 'backspace'
     this.setState(res)
   }
 
@@ -182,6 +173,14 @@ class App extends Component {
 
     res['lastAction'] = 'number';
     this.setState(res);
+  }
+  componentDidUpdate() {
+    for (let i in this.state) {
+      console.log(i + ': ' + this.state[i])
+    }
+
+
+    console.log('________________________________________________________')
   }
 
   render() {
