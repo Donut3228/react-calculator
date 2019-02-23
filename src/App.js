@@ -34,12 +34,16 @@ class App extends Component {
         res['entry'] = '0';
         res['hiddenEntry'] = '0';
         res['lastAction'] = 'clearAll';
+        if (res['value'] === '') {
+          res['output'] = ''
+        }
         break;
       case 'C':
         res['entry'] = '0';
         res['hiddenEntry'] = '0';
         res['value'] = '';
         res['lastAction'] = 'clear';
+        res['output'] = ''
         break;
 
       default:
@@ -62,8 +66,12 @@ class App extends Component {
         res['entry'] = res['entry'].slice(0, -1);
         res['output'] = res['entry'] + symbols[button] 
         break;
-      
-
+      case 'operator':
+        res['output'] = res['output'] + res['entry'] + symbols[button]  
+        break;
+      case 'number':
+        res['output'] = res['output'] + res['entry'] + symbols[button]  
+        break;
       default:
         res['output'] = res['entry'] + symbols[button]
         break;
@@ -167,6 +175,9 @@ class App extends Component {
     }
     if (res['lastAction'] === 'operator') {
       res['entry'] = button
+    }
+    if (res['lastAction'] === 'equal') {
+      res['output'] = ''
     }
 
     res['lastAction'] = 'number';
